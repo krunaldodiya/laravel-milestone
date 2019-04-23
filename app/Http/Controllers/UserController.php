@@ -8,11 +8,16 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function getUserById($user_id)
+    {
+        return User::with('school')->where(['id' => $user_id])->first();
+    }
+    
     public function me()
     {
-        $user = auth('api')->user();
+        $user = $this->getUserById(auth('api')->user()->id);
 
-        return compact('user'); 
+        return ['user' => $user];
     }
 
     public function authenticate(AuthRequest $request)
@@ -28,9 +33,12 @@ class UserController extends Controller
     {
         $uid = $data['uid'];
 
-        if ($uid != $user->uid) {
+        if ($user->uid == null) {
+            $user->update(['uid' => $data['uid'], 'status'=> false]);
+        }
+
+        if ($user->uid != null && $uid != $user->uid) {
             $errors = [
-                "message"=> "The given data was invalid.",
                 "errors"=> [
                     "uid"=> [
                         "Device already registered."
@@ -38,7 +46,7 @@ class UserController extends Controller
                 ]
             ];
 
-            return response($errors, 403);
+            return response($errors, 402);
         }
 
         return $this->generateToken($user->id);
@@ -53,9 +61,14 @@ class UserController extends Controller
 
     private function generateToken($user_id)
     {
-        $user = User::find($user_id);
+        $user = $this->getUserById($user_id);
         $token = auth('api')->tokenById($user_id);
 
-        return compact('user', 'token');
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth('api')->factory()->getTTL() * 60 * 24 * 365,
+            'user' => $user
+        ]);
     }
 }

@@ -19,11 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('mobile')->unique();
             $table->string('uid');
             $table->string('email')->unique()->nullable();
-            $table->integer('profession_id')->nullable();
+            $table->string('dob', 10)->default("01-01-1990");
+            $table->enum('gender', ["Male", "Female"])->default("Male");
             $table->integer('school_id')->nullable();
             $table->string('education')->nullable();
             $table->enum('account_status', ["Approved","Rejected","Pending"])->default("Pending");
-            $table->enum('profile_status', ["Updated","Pending"])->default("Pending");
+            $table->boolean('status')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
