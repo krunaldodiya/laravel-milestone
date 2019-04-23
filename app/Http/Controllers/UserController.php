@@ -6,6 +6,7 @@ use App\Http\Requests\AuthRequest;
 
 use App\User;
 use App\Http\Requests\UpdateUser;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
