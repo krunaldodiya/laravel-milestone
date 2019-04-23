@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AuthRequest;
 
 use App\User;
+use App\Http\Requests\UpdateUser;
 
 class UserController extends Controller
 {
@@ -16,6 +17,25 @@ class UserController extends Controller
     public function me()
     {
         $user = $this->getUserById(auth('api')->user()->id);
+
+        return ['user' => $user];
+    }
+
+    public function update(UpdateUser $request)
+    {
+        $user_id = auth('api')->user()->id;
+
+        User::where('id', $user_id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'dob' => Carbon::create($request->dob),
+            'gender' => $request->gender,
+            'school_id' => $request->school_id,
+            'education' => $request->education,
+            'status' => true
+        ]);
+
+        $user = $this->getUserById($user_id);
 
         return ['user' => $user];
     }
