@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('dob')->default("01-01-1990");
             $table->enum('gender', ["Male", "Female"])->default("Male");
 
-            $table->bigInteger("school_id")->unsigned();
+            $table->bigInteger("school_id")->default(1)->unsigned();
             $table->foreign('school_id')->references('id')->on('schools')
             ->onUpdate('cascade')->onDelete('cascade');
 

@@ -61,7 +61,7 @@ class UserController extends Controller
         if ($user->uid != null && $uid != $user->uid) {
             $errors = [
                 "errors"=> [
-                    "uid"=> [
+                    "mobile"=> [
                         "Device already registered."
                     ]
                 ]
