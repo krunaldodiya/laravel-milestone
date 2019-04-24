@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->string('mobile')->unique();
-            $table->string('uid');
+            $table->string('uid')->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('dob')->default("01-01-1990");
             $table->enum('gender', ["Male", "Female"])->default("Male");
