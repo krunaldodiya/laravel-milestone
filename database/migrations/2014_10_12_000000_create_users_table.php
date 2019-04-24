@@ -21,7 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('dob')->default("01-01-1990");
             $table->enum('gender', ["Male", "Female"])->default("Male");
-            $table->integer('school_id')->nullable();
+
+            $table->bigInteger("school_id")->unsigned();
+            $table->foreign('school_id')->references('id')->on('schools')
+            ->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('education')->nullable();
             $table->enum('account_status', ["Approved","Rejected","Pending"])->default("Pending");
             $table->boolean('status')->default(false);
