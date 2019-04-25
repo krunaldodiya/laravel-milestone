@@ -38,6 +38,26 @@ class User extends \TCG\Voyager\Models\User implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    public function getAvatarAttribute($avatar)
+    {
+        if ($avatar == null) {
+            if ($this->gender == "Male") {
+                return "male.png";
+            }
+
+            if ($this->gender == "Female") {
+                return "female.png";
+            }
+        }
+
+        return $avatar;
+    }
+
+    public function school()
+    {
+        return $this->belongsTo(School::class);
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
@@ -56,10 +76,5 @@ class User extends \TCG\Voyager\Models\User implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-    public function school()
-    {
-        return $this->belongsTo(School::class);
     }
 }

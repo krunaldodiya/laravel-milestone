@@ -22,7 +22,7 @@ class CreateTopicsTable extends Migration
 
             $table->string("image")->nullable();
             $table->string("name");
-            $table->string("description")->nullable();
+            $table->text("description")->nullable();
             $table->integer("order")->nullable();
             $table->timestamps();
         });
