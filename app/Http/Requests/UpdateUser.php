@@ -27,7 +27,7 @@ class UpdateUser extends FormRequest
             'id' => "required",
             'name' => "required|min:3",
             'email' => "required|email",
-            'dob' => "required|size:10",
+            'dob' => "required",
             'gender' => "required",
             'school_id' => "required",
             'education' => "required",
