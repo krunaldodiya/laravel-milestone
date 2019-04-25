@@ -12,3 +12,11 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth:api'], function () {
 Route::group(['prefix' => 'home', 'middleware' => 'auth:api'], function () {
     Route::post('/schools', 'HomeController@getSchools');
 });
+
+Route::group(['prefix' => 'categories', 'middleware' => 'auth:api'], function () {
+    Route::post('/all', 'CategoryController@getCategories');
+});
+
+Route::group(['prefix' => 'videos', 'middleware' => 'auth:api'], function () {
+    Route::post('/by-topic-id', 'VideoController@getVideos');
+});
