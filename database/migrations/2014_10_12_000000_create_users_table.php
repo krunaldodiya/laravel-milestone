@@ -16,8 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->string('mobile')->unique();
-            $table->string('uid')->nullable();
+            $table->string('mobile')->nullable()->unique();
+            $table->string('uid')->nullable()->unique();
             
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -26,10 +26,9 @@ class CreateUsersTable extends Migration
             $table->string('dob')->default("01-01-1990");
             $table->enum('gender', ["Male", "Female"])->default("Male");
 
-            $table->bigInteger("school_id")->default(1)->unsigned();
-            $table->foreign('school_id')->references('id')->on('schools')
-            ->onUpdate('cascade')->onDelete('cascade');
+            $table->integer("school_id")->default(1);
 
+            $table->string('avatar')->nullable();
             $table->string('education')->nullable();
             $table->enum('account_status', ["Approved","Rejected","Pending"])->default("Pending");
             $table->boolean('status')->default(false);
