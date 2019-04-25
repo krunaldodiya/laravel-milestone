@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\School;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -32,5 +33,12 @@ class HomeController extends Controller
         $schools = School::get();
         
         return ['schools' => $schools];
+    }
+
+    public function resetDevice(Request $request)
+    {
+        User::where('id', $request->id)->update(['uid' => null, 'account_status' => 'Pending']);
+
+        return redirect()->back();
     }
 }

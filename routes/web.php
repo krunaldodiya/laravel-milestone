@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get("reset-device", "HomeController@resetDevice")->name("reset.device");

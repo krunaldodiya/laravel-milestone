@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 8.0.13)
 # Database: milestone
-# Generation Time: 2019-04-25 06:59:57 +0000
+# Generation Time: 2019-04-25 16:07:00 +0000
 # ************************************************************
 
 
@@ -41,8 +41,10 @@ LOCK TABLES `categories` WRITE;
 
 INSERT INTO `categories` (`id`, `image`, `name`, `order`, `created_at`, `updated_at`)
 VALUES
-	(1,'categories/April2019/mMfVcXVUuiGTwSKtc0l1.png','Spoken English',1,'2019-04-25 03:27:55','2019-04-25 04:38:08'),
-	(2,'categories/April2019/ZSn57LYS58omkUptAijJ.png','Standard 8',1,'2019-04-25 03:27:55','2019-04-25 04:38:48');
+	(1,'categories/April2019/9ljV05Guz0OgAGv5nZAA.png','Spoken English',1,'2019-04-25 03:27:55','2019-04-25 14:40:18'),
+	(2,'categories/April2019/G2Ck3JtILARrfBoUilj9.png','Standard 8',1,'2019-04-25 03:27:55','2019-04-25 14:40:28'),
+	(3,'categories/April2019/MhG4zkU5GqUmcr4pevQc.png','Standard 9',1,'2019-04-25 14:42:20','2019-04-25 14:42:20'),
+	(4,'categories/April2019/mrppKg0n6J3kpbB9otUs.png','Standard 10',1,'2019-04-25 14:42:34','2019-04-25 14:42:34');
 
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -79,8 +81,8 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 VALUES
 	(1,1,'id','number','ID',1,0,0,0,0,0,'{}',1),
 	(2,1,'name','text','Name',0,1,1,1,1,1,'{}',2),
-	(3,1,'email','text','Email',0,1,1,1,1,1,'{}',3),
-	(4,1,'password','password','Password',0,0,0,1,1,0,'{}',4),
+	(3,1,'email','text','Email',0,1,1,0,1,1,'{}',3),
+	(4,1,'password','password','Password',0,0,0,0,1,0,'{}',4),
 	(5,1,'remember_token','text','Remember Token',0,0,0,0,0,0,'{}',5),
 	(6,1,'created_at','timestamp','Created At',0,1,1,0,0,0,'{}',6),
 	(7,1,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),
@@ -97,7 +99,7 @@ VALUES
 	(18,3,'created_at','timestamp','Created At',0,0,0,0,0,0,NULL,3),
 	(19,3,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,4),
 	(20,3,'display_name','text','Display Name',1,1,1,1,1,1,NULL,5),
-	(21,1,'role_id','text','Role',0,1,1,1,1,1,'{}',9),
+	(21,1,'role_id','text','Role',0,0,0,0,0,0,'{}',9),
 	(22,4,'id','number','ID',1,0,0,0,0,0,'{}',1),
 	(24,4,'order','text','Order',1,1,1,1,1,1,'{\"default\":1}',3),
 	(25,4,'name','text','Name',1,1,1,1,1,1,'{}',4),
@@ -158,15 +160,15 @@ VALUES
 	(83,8,'topic_belongsto_category_relationship','relationship','category',0,1,1,1,1,1,'{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',9),
 	(84,8,'topic_hasmany_video_relationship','relationship','videos',0,1,1,1,1,1,'{\"model\":\"App\\\\Video\",\"table\":\"videos\",\"type\":\"hasMany\",\"column\":\"topic_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',10),
 	(85,1,'user_belongsto_school_relationship','relationship','school',0,1,1,1,1,1,'{\"model\":\"App\\\\School\",\"table\":\"schools\",\"type\":\"belongsTo\",\"column\":\"school_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',13),
-	(86,1,'mobile','text','Mobile',0,1,1,1,1,1,'{}',4),
-	(87,1,'uid','text','Uid',0,1,1,1,1,1,'{}',5),
-	(88,1,'email_verified_at','timestamp','Email Verified At',0,1,1,1,1,1,'{}',7),
+	(86,1,'mobile','text','Mobile',0,1,1,0,1,1,'{}',4),
+	(87,1,'uid','text','Uid',0,1,1,0,1,1,'{}',5),
+	(88,1,'email_verified_at','timestamp','Email Verified At',0,1,1,0,0,1,'{}',7),
 	(89,1,'dob','text','Dob',1,1,1,1,1,1,'{}',9),
-	(90,1,'gender','text','Gender',1,1,1,1,1,1,'{}',10),
-	(91,1,'school_id','text','School Id',1,1,1,1,1,1,'{}',11),
+	(90,1,'gender','select_dropdown','Gender',1,1,1,1,1,1,'{\"default\":\"option1\",\"options\":{\"option1\":\"Male\",\"option2\":\"Female\"}}',10),
+	(91,1,'school_id','text','School Id',1,0,0,0,0,0,'{}',11),
 	(92,1,'education','text','Education',0,1,1,1,1,1,'{}',13),
-	(93,1,'account_status','text','Account Status',1,1,1,1,1,1,'{}',14),
-	(94,1,'status','text','Status',1,1,1,1,1,1,'{}',15),
+	(93,1,'account_status','select_dropdown','Account Status',1,1,1,1,1,1,'{\"default\":\"option1\",\"options\":{\"option1\":\"Pending\",\"option2\":\"Approved\",\"option3\":\"Rejected\"}}',14),
+	(94,1,'status','checkbox','Status',1,1,1,1,1,1,'{\"on\":\"Enabled\",\"off\":\"Disabled\",\"checked\":\"true\"}',15),
 	(96,9,'video_belongsto_topic_relationship','relationship','topic',0,1,1,1,1,1,'{\"model\":\"App\\\\Topic\",\"table\":\"topics\",\"type\":\"belongsTo\",\"column\":\"topic_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',12);
 
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
@@ -204,7 +206,7 @@ LOCK TABLES `data_types` WRITE;
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`)
 VALUES
-	(1,'users','users','User','Users','voyager-person','TCG\\Voyager\\Models\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController',NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:51','2019-04-25 06:31:20'),
+	(1,'users','users','User','Users','voyager-person','App\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController',NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:51','2019-04-25 16:05:49'),
 	(2,'menus','menus','Menu','Menus','voyager-list','TCG\\Voyager\\Models\\Menu',NULL,'','',1,0,NULL,'2019-04-25 03:27:51','2019-04-25 03:27:51'),
 	(3,'roles','roles','Role','Roles','voyager-lock','TCG\\Voyager\\Models\\Role',NULL,'','',1,0,NULL,'2019-04-25 03:27:51','2019-04-25 03:27:51'),
 	(4,'categories','categories','Category','Categories','voyager-categories','App\\Category',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:55','2019-04-25 06:53:53'),
@@ -785,9 +787,9 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `mobile`, `uid`, `email`, `email_verified_at`, `password`, `dob`, `gender`, `school_id`, `avatar`, `education`, `account_status`, `status`, `remember_token`, `settings`, `created_at`, `updated_at`)
 VALUES
-	(1,1,'Admin',NULL,NULL,'admin@admin.com',NULL,'$2y$10$CqOgypX09.jGO6v1yIKKxOiibLGjLl4vxXlSueNaBIXGiSkZoNvvO','01-01-1990','Male',1,'users/April2019/kvZzRbxdI5smocRSJEAs.jpeg',NULL,'Pending',0,'Wu5muEA2LUFRf3eaeJj4JJieyY18yTdLc2OFSk5IO27AwP4lrGvktuQvjr3U','{\"locale\":\"en\"}','2019-04-25 03:27:55','2019-04-25 05:27:25'),
-	(2,1,'krunal dodiya','9426726815','58d0851c77d214e4','kunal.dodiya1@gmail.com',NULL,NULL,'1987-06-27 00:00:00','Male',2,'users/April2019/VelmQNvssloRGHocUhmg.jpeg','graduate','Pending',1,NULL,'{\"locale\":\"en\"}','2019-04-25 03:29:53','2019-04-25 04:29:30'),
-	(3,2,'Niteshkumar Siddhram Shendre','7383600462','58216f8fcd7c9d1e','nsendre89@gmail.com',NULL,NULL,'1991-08-29 00:00:00','Male',2,'users/default.png','12','Pending',1,NULL,NULL,'2019-04-25 04:32:17','2019-04-25 04:33:02');
+	(1,1,'Admin',NULL,NULL,'admin@admin.com',NULL,'$2y$10$CqOgypX09.jGO6v1yIKKxOiibLGjLl4vxXlSueNaBIXGiSkZoNvvO','1990-01-01 00:00:00','Male',2,'users/April2019/kvZzRbxdI5smocRSJEAs.jpeg','graduate','Pending',1,'Wu5muEA2LUFRf3eaeJj4JJieyY18yTdLc2OFSk5IO27AwP4lrGvktuQvjr3U','{\"locale\":\"en\"}','2019-04-25 03:27:55','2019-04-25 15:38:44'),
+	(2,1,'krunal dodiya','9426726815',NULL,'kunal.dodiya1@gmail.com',NULL,NULL,'1987-06-27 00:00:00','Male',2,'users/April2019/VelmQNvssloRGHocUhmg.jpeg','graduate','Pending',1,NULL,'{\"locale\":\"en\"}','2019-04-25 03:29:53','2019-04-25 15:39:07'),
+	(3,2,'Niteshkumar Siddhram Shendre','7383600462',NULL,'nsendre89@gmail.com',NULL,NULL,'1991-08-29 00:00:00','Male',2,'users/default.png','12','Pending',1,NULL,NULL,'2019-04-25 04:32:17','2019-04-25 15:38:58');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
