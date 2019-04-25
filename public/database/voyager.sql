@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 8.0.13)
 # Database: milestone
-# Generation Time: 2019-04-25 06:52:25 +0000
+# Generation Time: 2019-04-25 06:59:57 +0000
 # ************************************************************
 
 
@@ -144,7 +144,6 @@ VALUES
 	(67,8,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',7),
 	(68,8,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',8),
 	(69,9,'id','text','Id',1,0,0,0,0,0,'{}',1),
-	(70,9,'category_id','text','Category Id',1,1,1,1,1,1,'{}',2),
 	(71,9,'topic_id','text','Topic Id',1,1,1,1,1,1,'{}',3),
 	(72,9,'thumbnail','image','Thumbnail',0,1,1,1,1,1,'{}',4),
 	(73,9,'title','text','Title',1,1,1,1,1,1,'{}',5),
@@ -154,8 +153,7 @@ VALUES
 	(77,9,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',9),
 	(78,9,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',10),
 	(79,4,'image','image','Image',0,1,1,1,1,1,'{}',4),
-	(80,4,'category_hasone_topic_relationship','relationship','topics',0,1,1,1,1,1,'{\"model\":\"App\\\\Topic\",\"table\":\"topics\",\"type\":\"hasOne\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":null}',8),
-	(81,4,'category_hasmany_video_relationship','relationship','videos',0,1,1,1,1,1,'{\"model\":\"App\\\\Video\",\"table\":\"videos\",\"type\":\"hasMany\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":null}',9),
+	(80,4,'category_hasone_topic_relationship','relationship','topics',0,1,1,1,1,1,'{\"model\":\"App\\\\Topic\",\"table\":\"topics\",\"type\":\"hasOne\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',8),
 	(82,7,'school_hasmany_user_relationship','relationship','students',0,1,1,1,1,1,'{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"hasMany\",\"column\":\"school_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',6),
 	(83,8,'topic_belongsto_category_relationship','relationship','category',0,1,1,1,1,1,'{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',9),
 	(84,8,'topic_hasmany_video_relationship','relationship','videos',0,1,1,1,1,1,'{\"model\":\"App\\\\Video\",\"table\":\"videos\",\"type\":\"hasMany\",\"column\":\"topic_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',10),
@@ -169,7 +167,6 @@ VALUES
 	(92,1,'education','text','Education',0,1,1,1,1,1,'{}',13),
 	(93,1,'account_status','text','Account Status',1,1,1,1,1,1,'{}',14),
 	(94,1,'status','text','Status',1,1,1,1,1,1,'{}',15),
-	(95,9,'video_belongsto_category_relationship','relationship','category',0,1,1,1,1,1,'{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',11),
 	(96,9,'video_belongsto_topic_relationship','relationship','topic',0,1,1,1,1,1,'{\"model\":\"App\\\\Topic\",\"table\":\"topics\",\"type\":\"belongsTo\",\"column\":\"topic_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',12);
 
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
@@ -210,12 +207,12 @@ VALUES
 	(1,'users','users','User','Users','voyager-person','TCG\\Voyager\\Models\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController',NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:51','2019-04-25 06:31:20'),
 	(2,'menus','menus','Menu','Menus','voyager-list','TCG\\Voyager\\Models\\Menu',NULL,'','',1,0,NULL,'2019-04-25 03:27:51','2019-04-25 03:27:51'),
 	(3,'roles','roles','Role','Roles','voyager-lock','TCG\\Voyager\\Models\\Role',NULL,'','',1,0,NULL,'2019-04-25 03:27:51','2019-04-25 03:27:51'),
-	(4,'categories','categories','Category','Categories','voyager-categories','App\\Category',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:55','2019-04-25 06:23:33'),
+	(4,'categories','categories','Category','Categories','voyager-categories','App\\Category',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:55','2019-04-25 06:53:53'),
 	(5,'posts','posts','Post','Posts','voyager-news','TCG\\Voyager\\Models\\Post','TCG\\Voyager\\Policies\\PostPolicy','','',1,0,NULL,'2019-04-25 03:27:55','2019-04-25 03:27:55'),
 	(6,'pages','pages','Page','Pages','voyager-file-text','TCG\\Voyager\\Models\\Page',NULL,'','',1,0,NULL,'2019-04-25 03:27:55','2019-04-25 03:27:55'),
 	(7,'schools','schools','School','Schools','voyager-categories','App\\School',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:02:28','2019-04-25 06:27:37'),
 	(8,'topics','topics','Topic','Topics','voyager-categories','App\\Topic',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:04:50','2019-04-25 06:33:35'),
-	(9,'videos','videos','Video','Videos','voyager-categories','App\\Video',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:05:21','2019-04-25 06:32:52');
+	(9,'videos','videos','Video','Videos','voyager-categories','App\\Video',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:05:21','2019-04-25 06:53:46');
 
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -654,6 +651,15 @@ CREATE TABLE `topics` (
   CONSTRAINT `topics_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+LOCK TABLES `topics` WRITE;
+/*!40000 ALTER TABLE `topics` DISABLE KEYS */;
+
+INSERT INTO `topics` (`id`, `category_id`, `image`, `name`, `description`, `order`, `created_at`, `updated_at`)
+VALUES
+	(1,1,'topics/April2019/Jm3Ex8vLSPNVpfDLPyJq.png','English Grammer - Tense','Tenses are main part of english grammer',1,'2019-04-25 06:57:00','2019-04-25 06:59:16');
+
+/*!40000 ALTER TABLE `topics` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table translations
@@ -807,6 +813,15 @@ CREATE TABLE `videos` (
   CONSTRAINT `videos_topic_id_foreign` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+LOCK TABLES `videos` WRITE;
+/*!40000 ALTER TABLE `videos` DISABLE KEYS */;
+
+INSERT INTO `videos` (`id`, `topic_id`, `thumbnail`, `title`, `description`, `url`, `order`, `created_at`, `updated_at`)
+VALUES
+	(1,1,'videos/April2019/XiANnDnaxGzpWPexiUpW.png','Present Indefinite Tense','आप बडी आसानी से Present Indefinite Tense के Concept को सीख जायेंगे..Present Indefinite Tense | Do Does का प्रयोग । With examples in Hindi','https://www.youtube.com/watch?v=SXJXaHaWS9U',1,'2019-04-25 06:58:00','2019-04-25 06:59:05');
+
+/*!40000 ALTER TABLE `videos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
