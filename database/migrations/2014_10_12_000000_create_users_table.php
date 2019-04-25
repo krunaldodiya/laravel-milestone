@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
 
             $table->integer("school_id")->default(1);
 
-            $table->string('avatar')->nullable();
+            $table->string('avatar')->default("users/default.png");
             $table->string('education')->nullable();
             $table->enum('account_status', ["Approved","Rejected","Pending"])->default("Pending");
             $table->boolean('status')->default(false);
