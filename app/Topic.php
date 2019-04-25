@@ -13,4 +13,14 @@ class Topic extends Model
     protected $dates = [
         'created_at', 'updated_at',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function vidoes()
+    {
+        return $this->hasMany(Video::class);
+    }
 }
