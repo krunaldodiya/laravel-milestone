@@ -7,7 +7,7 @@
 #
 # Host: ctgplw90pifdso61.cbetxkdyhwsb.us-east-1.rds.amazonaws.com (MySQL 5.7.23-log)
 # Database: ulj2sm5f2z7yjwgx
-# Generation Time: 2019-04-25 05:23:15 +0000
+# Generation Time: 2019-04-25 05:35:37 +0000
 # ************************************************************
 
 
@@ -320,6 +320,20 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table password_resets
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `password_resets`;
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
 # Dump of table permission_role
 # ------------------------------------------------------------
 
@@ -547,6 +561,32 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table schools
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `schools`;
+
+CREATE TABLE `schools` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+LOCK TABLES `schools` WRITE;
+/*!40000 ALTER TABLE `schools` DISABLE KEYS */;
+
+INSERT INTO `schools` (`id`, `name`, `location`, `created_at`, `updated_at`)
+VALUES
+	(1,'None','None','2019-04-24 20:33:00','2019-04-25 04:02:47'),
+	(2,'Saraswati High School','Saraspur, Ahmedabad','2019-04-24 20:33:10','2019-04-24 20:33:10');
+
+/*!40000 ALTER TABLE `schools` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table settings
 # ------------------------------------------------------------
 
@@ -583,6 +623,27 @@ VALUES
 
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table topics
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `topics`;
+
+CREATE TABLE `topics` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(10) unsigned NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `order` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `topics_category_id_foreign` (`category_id`),
+  CONSTRAINT `topics_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 
 # Dump of table translations
@@ -668,6 +729,77 @@ VALUES
 
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` bigint(20) unsigned DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `uid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dob` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '01-01-1990',
+  `gender` enum('Male','Female') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Male',
+  `school_id` int(11) NOT NULL DEFAULT '1',
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'users/default.png',
+  `education` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `account_status` enum('Approved','Rejected','Pending') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `settings` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_mobile_unique` (`mobile`),
+  UNIQUE KEY `users_uid_unique` (`uid`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  KEY `users_role_id_foreign` (`role_id`),
+  CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+
+INSERT INTO `users` (`id`, `role_id`, `name`, `mobile`, `uid`, `email`, `email_verified_at`, `password`, `dob`, `gender`, `school_id`, `avatar`, `education`, `account_status`, `status`, `remember_token`, `settings`, `created_at`, `updated_at`)
+VALUES
+	(1,1,'Admin',NULL,NULL,'admin@admin.com',NULL,'$2y$10$CqOgypX09.jGO6v1yIKKxOiibLGjLl4vxXlSueNaBIXGiSkZoNvvO','01-01-1990','Male',1,'users/April2019/kvZzRbxdI5smocRSJEAs.jpeg',NULL,'Pending',0,'Wu5muEA2LUFRf3eaeJj4JJieyY18yTdLc2OFSk5IO27AwP4lrGvktuQvjr3U','{\"locale\":\"en\"}','2019-04-25 03:27:55','2019-04-25 05:27:25'),
+	(2,1,'krunal dodiya','9426726815','58d0851c77d214e4','kunal.dodiya1@gmail.com',NULL,NULL,'1987-06-27 00:00:00','Male',2,'users/April2019/VelmQNvssloRGHocUhmg.jpeg','graduate','Pending',1,NULL,'{\"locale\":\"en\"}','2019-04-25 03:29:53','2019-04-25 04:29:30'),
+	(3,2,'Niteshkumar Siddhram Shendre','7383600462','58216f8fcd7c9d1e','nsendre89@gmail.com',NULL,NULL,'1991-08-29 00:00:00','Male',2,'users/default.png','12','Pending',1,NULL,NULL,'2019-04-25 04:32:17','2019-04-25 04:33:02');
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table videos
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `videos`;
+
+CREATE TABLE `videos` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(10) unsigned NOT NULL,
+  `topic_id` bigint(20) unsigned NOT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `videos_category_id_foreign` (`category_id`),
+  KEY `videos_topic_id_foreign` (`topic_id`),
+  CONSTRAINT `videos_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `videos_topic_id_foreign` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 
 

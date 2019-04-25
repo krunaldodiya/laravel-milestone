@@ -59,7 +59,11 @@
 			<string>drop</string>
 		</array>
 		<key>password_resets</key>
-		<array/>
+		<array>
+			<string>structure</string>
+			<string>content</string>
+			<string>drop</string>
+		</array>
 		<key>permission_role</key>
 		<array>
 			<string>structure</string>
@@ -85,7 +89,11 @@
 			<string>drop</string>
 		</array>
 		<key>schools</key>
-		<array/>
+		<array>
+			<string>structure</string>
+			<string>content</string>
+			<string>drop</string>
+		</array>
 		<key>settings</key>
 		<array>
 			<string>structure</string>
@@ -99,7 +107,11 @@
 		<key>telescope_monitoring</key>
 		<array/>
 		<key>topics</key>
-		<array/>
+		<array>
+			<string>structure</string>
+			<string>content</string>
+			<string>drop</string>
+		</array>
 		<key>translations</key>
 		<array>
 			<string>structure</string>
@@ -113,9 +125,17 @@
 			<string>drop</string>
 		</array>
 		<key>users</key>
-		<array/>
+		<array>
+			<string>structure</string>
+			<string>content</string>
+			<string>drop</string>
+		</array>
 		<key>videos</key>
-		<array/>
+		<array>
+			<string>structure</string>
+			<string>content</string>
+			<string>drop</string>
+		</array>
 	</dict>
 	<key>settings</key>
 	<dict>
