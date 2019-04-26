@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 8.0.13)
 # Database: milestone
-# Generation Time: 2019-04-25 16:07:00 +0000
+# Generation Time: 2019-04-25 16:38:50 +0000
 # ************************************************************
 
 
@@ -164,10 +164,10 @@ VALUES
 	(87,1,'uid','text','Uid',0,1,1,0,1,1,'{}',5),
 	(88,1,'email_verified_at','timestamp','Email Verified At',0,1,1,0,0,1,'{}',7),
 	(89,1,'dob','text','Dob',1,1,1,1,1,1,'{}',9),
-	(90,1,'gender','select_dropdown','Gender',1,1,1,1,1,1,'{\"default\":\"option1\",\"options\":{\"option1\":\"Male\",\"option2\":\"Female\"}}',10),
+	(90,1,'gender','select_dropdown','Gender',1,1,1,1,1,1,'{\"default\":\"Male\",\"options\":{\"Male\":\"Male\",\"Female\":\"Female\"}}',10),
 	(91,1,'school_id','text','School Id',1,0,0,0,0,0,'{}',11),
 	(92,1,'education','text','Education',0,1,1,1,1,1,'{}',13),
-	(93,1,'account_status','select_dropdown','Account Status',1,1,1,1,1,1,'{\"default\":\"option1\",\"options\":{\"option1\":\"Pending\",\"option2\":\"Approved\",\"option3\":\"Rejected\"}}',14),
+	(93,1,'account_status','select_dropdown','Account Status',1,1,1,1,1,1,'{\"default\":\"Pending\",\"options\":{\"Pending\":\"Pending\",\"Approved\":\"Approved\",\"Rejected\":\"Rejected\"}}',14),
 	(94,1,'status','checkbox','Status',1,1,1,1,1,1,'{\"on\":\"Enabled\",\"off\":\"Disabled\",\"checked\":\"true\"}',15),
 	(96,9,'video_belongsto_topic_relationship','relationship','topic',0,1,1,1,1,1,'{\"model\":\"App\\\\Topic\",\"table\":\"topics\",\"type\":\"belongsTo\",\"column\":\"topic_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',12);
 
@@ -206,7 +206,7 @@ LOCK TABLES `data_types` WRITE;
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`)
 VALUES
-	(1,'users','users','User','Users','voyager-person','App\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController',NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:51','2019-04-25 16:05:49'),
+	(1,'users','users','User','Users','voyager-person','App\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController',NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:51','2019-04-25 16:38:17'),
 	(2,'menus','menus','Menu','Menus','voyager-list','TCG\\Voyager\\Models\\Menu',NULL,'','',1,0,NULL,'2019-04-25 03:27:51','2019-04-25 03:27:51'),
 	(3,'roles','roles','Role','Roles','voyager-lock','TCG\\Voyager\\Models\\Role',NULL,'','',1,0,NULL,'2019-04-25 03:27:51','2019-04-25 03:27:51'),
 	(4,'categories','categories','Category','Categories','voyager-categories','App\\Category',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:55','2019-04-25 06:53:53'),

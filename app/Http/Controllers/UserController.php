@@ -6,7 +6,6 @@ use App\Http\Requests\AuthRequest;
 
 use App\User;
 use App\Http\Requests\UpdateUser;
-use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -29,7 +28,7 @@ class UserController extends Controller
         User::where('id', $user_id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'dob' => Carbon::create($request->dob),
+            'dob' => $request->dob,
             'gender' => $request->gender,
             'school_id' => $request->school_id,
             'education' => $request->education,
