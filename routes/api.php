@@ -17,6 +17,10 @@ Route::group(['prefix' => 'categories', 'middleware' => 'auth:api'], function ()
     Route::post('/all', 'CategoryController@getCategories');
 });
 
+Route::group(['prefix' => 'topics', 'middleware' => 'auth:api'], function () {
+    Route::post('/all', 'TopicController@getTopics');
+});
+
 Route::group(['prefix' => 'videos', 'middleware' => 'auth:api'], function () {
     Route::post('/by-topic-id', 'VideoController@getVideos');
 });
