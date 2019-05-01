@@ -1,5 +1,9 @@
 <?php
 
+Route::group(['prefix' => 'test'], function () {
+    Route::get('/categories', 'CategoryController@getCategories');
+});
+
 Route::group(['prefix' => 'device', 'middleware' => 'guest:api'], function () {
     Route::post('/authenticate', 'UserController@authenticate');
 });
