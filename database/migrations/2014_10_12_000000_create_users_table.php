@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('mobile')->nullable()->unique();
             $table->string('uid')->nullable()->unique();
-            
+
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
 
             $table->string('avatar')->default("users/default.png");
             $table->string('education')->nullable();
-            $table->enum('account_status', ["Approved","Rejected","Pending"])->default("Pending");
+            $table->enum('account_status', ["Approved", "Rejected", "Pending"])->default("Pending");
             $table->boolean('status')->default(false);
             $table->rememberToken();
             $table->timestamps();
