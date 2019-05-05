@@ -28,9 +28,9 @@ class UserController extends Controller
         $name = $image->getClientOriginalName();
 
         $image->move("users", $name);
-        auth('api')->user()->update(['avatar' => "users/${name}"]);
+        auth('api')->user()->update(['avatar' => $name]);
 
-        $user = $this->user->getUserById(auth('api')->user()->id);
+        $user = $this->getUserById(auth('api')->user()->id);
         return ['user' => $user];
     }
 
