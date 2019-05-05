@@ -40,17 +40,7 @@ class User extends \TCG\Voyager\Models\User implements JWTSubject
 
     public function getAvatarAttribute($avatar)
     {
-        if ($avatar == null) {
-            if ($this->gender == "Male") {
-                return "male.png";
-            }
-
-            if ($this->gender == "Female") {
-                return "female.png";
-            }
-        }
-
-        return $avatar;
+        return $avatar == null ? "default.png" : $avatar;
     }
 
     public function school()

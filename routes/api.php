@@ -11,6 +11,7 @@ Route::group(['prefix' => 'device', 'middleware' => 'guest:api'], function () {
 Route::group(['prefix' => 'users', 'middleware' => 'auth:api'], function () {
     Route::post('/me', 'UserController@me');
     Route::post('/update', 'UserController@update');
+    Route::post('/avatar/upload', 'UserController@uploadAvatar');
 });
 
 Route::group(['prefix' => 'home', 'middleware' => 'auth:api'], function () {

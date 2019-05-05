@@ -6,6 +6,7 @@ use App\Http\Requests\AuthRequest;
 
 use App\User;
 use App\Http\Requests\UpdateUser;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -13,11 +14,23 @@ class UserController extends Controller
     {
         return User::with('school')->where(['id' => $user_id])->first();
     }
-    
+
     public function me()
     {
         $user = $this->getUserById(auth('api')->user()->id);
 
+        return ['user' => $user];
+    }
+
+    public function uploadAvatar(Request $request)
+    {
+        $image = $request->image;
+        $name = $image->getClientOriginalName();
+
+        $image->move("users", $name);
+        auth('api')->user()->update(['avatar' => $name]);
+
+        $user = $this->user->getUserById(auth('api')->user()->id);
         return ['user' => $user];
     }
 
@@ -54,13 +67,13 @@ class UserController extends Controller
         $uid = $data['uid'];
 
         if ($user->uid == null) {
-            $user->update(['uid' => $data['uid'], 'status'=> false]);
+            $user->update(['uid' => $data['uid'], 'status' => false]);
         }
 
         if ($user->uid != null && $uid != $user->uid) {
             $errors = [
-                "errors"=> [
-                    "mobile"=> [
+                "errors" => [
+                    "mobile" => [
                         "Device already registered."
                     ]
                 ]
