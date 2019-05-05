@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 8.0.13)
 # Database: milestone
-# Generation Time: 2019-04-25 16:38:50 +0000
+# Generation Time: 2019-05-05 11:10:27 +0000
 # ************************************************************
 
 
@@ -41,10 +41,10 @@ LOCK TABLES `categories` WRITE;
 
 INSERT INTO `categories` (`id`, `image`, `name`, `order`, `created_at`, `updated_at`)
 VALUES
-	(1,'categories/April2019/9ljV05Guz0OgAGv5nZAA.png','Spoken English',1,'2019-04-25 03:27:55','2019-04-25 14:40:18'),
-	(2,'categories/April2019/G2Ck3JtILARrfBoUilj9.png','Standard 8',1,'2019-04-25 03:27:55','2019-04-25 14:40:28'),
-	(3,'categories/April2019/MhG4zkU5GqUmcr4pevQc.png','Standard 9',1,'2019-04-25 14:42:20','2019-04-25 14:42:20'),
-	(4,'categories/April2019/mrppKg0n6J3kpbB9otUs.png','Standard 10',1,'2019-04-25 14:42:34','2019-04-25 14:42:34');
+	(1,'categories/April2019/Dl8cHrVeodtplNbaM98A.png','Spoken English',1,'2019-04-25 03:27:55','2019-04-26 06:26:26'),
+	(2,'categories/April2019/UO4sO0MrZ8IeIbyHngOp.png','Standard 8',1,'2019-04-25 03:27:55','2019-04-26 06:26:32'),
+	(3,'categories/April2019/CgP2YHKmVEMbHKKgCQLe.png','Standard 9',1,'2019-04-25 14:42:20','2019-04-26 06:26:21'),
+	(4,'categories/April2019/qczwpoirMTK7HdsmpmrJ.png','Standard 10',1,'2019-04-25 14:42:34','2019-04-26 06:25:45');
 
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -658,7 +658,7 @@ LOCK TABLES `topics` WRITE;
 
 INSERT INTO `topics` (`id`, `category_id`, `image`, `name`, `description`, `order`, `created_at`, `updated_at`)
 VALUES
-	(1,1,'topics/April2019/Jm3Ex8vLSPNVpfDLPyJq.png','English Grammer - Tense','Tenses are main part of english grammer',1,'2019-04-25 06:57:00','2019-04-25 06:59:16');
+	(1,1,'topics/May2019/6NskRBdhlMPffFVvAkeZ.png','English Grammer - Tense','Tenses are main part of english grammer',1,'2019-04-25 06:57:00','2019-05-01 07:04:04');
 
 /*!40000 ALTER TABLE `topics` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -766,7 +766,7 @@ CREATE TABLE `users` (
   `dob` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '01-01-1990',
   `gender` enum('Male','Female') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Male',
   `school_id` int(11) NOT NULL DEFAULT '1',
-  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'users/default.png',
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '',
   `education` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `account_status` enum('Approved','Rejected','Pending') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending',
   `status` tinyint(1) NOT NULL DEFAULT '0',
@@ -788,7 +788,7 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` (`id`, `role_id`, `name`, `mobile`, `uid`, `email`, `email_verified_at`, `password`, `dob`, `gender`, `school_id`, `avatar`, `education`, `account_status`, `status`, `remember_token`, `settings`, `created_at`, `updated_at`)
 VALUES
 	(1,1,'Admin',NULL,NULL,'admin@admin.com',NULL,'$2y$10$CqOgypX09.jGO6v1yIKKxOiibLGjLl4vxXlSueNaBIXGiSkZoNvvO','1990-01-01 00:00:00','Male',2,'users/April2019/kvZzRbxdI5smocRSJEAs.jpeg','graduate','Pending',1,'Wu5muEA2LUFRf3eaeJj4JJieyY18yTdLc2OFSk5IO27AwP4lrGvktuQvjr3U','{\"locale\":\"en\"}','2019-04-25 03:27:55','2019-04-25 15:38:44'),
-	(2,1,'krunal dodiya','9426726815',NULL,'kunal.dodiya1@gmail.com',NULL,NULL,'1987-06-27 00:00:00','Male',2,'users/April2019/VelmQNvssloRGHocUhmg.jpeg','graduate','Pending',1,NULL,'{\"locale\":\"en\"}','2019-04-25 03:29:53','2019-04-25 15:39:07'),
+	(2,1,'krunal dodiya','9426726815','110bb1d4491a245c','kunal.dodiya1@gmail.com',NULL,NULL,'27-06-1987','Male',2,'users/May2019/ogGHzkDajOwxe0ypzp20.png','graduate','Approved',1,NULL,'{\"locale\":\"en\"}','2019-04-25 03:29:53','2019-05-05 09:18:39'),
 	(3,2,'Niteshkumar Siddhram Shendre','7383600462',NULL,'nsendre89@gmail.com',NULL,NULL,'1991-08-29 00:00:00','Male',2,'users/default.png','12','Pending',1,NULL,NULL,'2019-04-25 04:32:17','2019-04-25 15:38:58');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
@@ -820,7 +820,8 @@ LOCK TABLES `videos` WRITE;
 
 INSERT INTO `videos` (`id`, `topic_id`, `thumbnail`, `title`, `description`, `url`, `order`, `created_at`, `updated_at`)
 VALUES
-	(1,1,'videos/April2019/XiANnDnaxGzpWPexiUpW.png','Present Indefinite Tense','आप बडी आसानी से Present Indefinite Tense के Concept को सीख जायेंगे..Present Indefinite Tense | Do Does का प्रयोग । With examples in Hindi','https://www.youtube.com/watch?v=SXJXaHaWS9U',1,'2019-04-25 06:58:00','2019-04-25 06:59:05');
+	(1,1,'videos/April2019/XiANnDnaxGzpWPexiUpW.png','Present Indefinite Tense','आप बडी आसानी से Present Indefinite Tense के Concept को सीख जायेंगे..Present Indefinite Tense | Do Does का प्रयोग । With examples in Hindi','https://www.youtube.com/watch?v=SXJXaHaWS9U',1,'2019-04-25 06:58:00','2019-04-25 06:59:05'),
+	(2,1,'videos/May2019/dT9prJvR1PU5FmNlkqf4.jpg','Verbs in English Grammar | All Types : Linking Copular Stative Dynamic Irregular Regular Transitive','All Types of Verbs in English Grammar are covered; Linking, Copular, Stative, Dynamic, Regular, Irregular, Transitive, Intransitive, Finite, Infinite, Main Verb, Helping verb etc....','https://www.youtube.com/watch?v=b93EwZF_3nY',2,'2019-05-01 10:16:00','2019-05-01 10:17:45');
 
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
