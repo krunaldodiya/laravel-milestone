@@ -5,9 +5,9 @@
 # https://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 127.0.0.1 (MySQL 8.0.13)
+# Host: 127.0.0.1 (MySQL 8.0.16)
 # Database: milestone
-# Generation Time: 2019-05-05 11:10:27 +0000
+# Generation Time: 2019-05-09 05:45:40 +0000
 # ************************************************************
 
 
@@ -41,10 +41,10 @@ LOCK TABLES `categories` WRITE;
 
 INSERT INTO `categories` (`id`, `image`, `name`, `order`, `created_at`, `updated_at`)
 VALUES
-	(1,'categories/April2019/Dl8cHrVeodtplNbaM98A.png','Spoken English',1,'2019-04-25 03:27:55','2019-04-26 06:26:26'),
-	(2,'categories/April2019/UO4sO0MrZ8IeIbyHngOp.png','Standard 8',1,'2019-04-25 03:27:55','2019-04-26 06:26:32'),
-	(3,'categories/April2019/CgP2YHKmVEMbHKKgCQLe.png','Standard 9',1,'2019-04-25 14:42:20','2019-04-26 06:26:21'),
-	(4,'categories/April2019/qczwpoirMTK7HdsmpmrJ.png','Standard 10',1,'2019-04-25 14:42:34','2019-04-26 06:25:45');
+	(1,'categories/May2019/1WDPrXXBCvFk7nHrmJrw.png','Spoken English',1,'2019-04-25 03:27:55','2019-05-05 11:43:54'),
+	(2,'categories/May2019/A25vFQYgXhawdKkHq5OM.png','Standard 8',1,'2019-04-25 03:27:55','2019-05-05 11:44:03'),
+	(3,'categories/May2019/y07DQaOrCWOigB47RVuU.png','Standard 9',1,'2019-04-25 14:42:20','2019-05-05 11:43:47'),
+	(4,'categories/May2019/kBs93sn5Z7lJHkHNbt4e.png','Standard 10',1,'2019-04-25 14:42:34','2019-05-05 11:43:40');
 
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -101,8 +101,8 @@ VALUES
 	(20,3,'display_name','text','Display Name',1,1,1,1,1,1,NULL,5),
 	(21,1,'role_id','text','Role',0,0,0,0,0,0,'{}',9),
 	(22,4,'id','number','ID',1,0,0,0,0,0,'{}',1),
-	(24,4,'order','text','Order',1,1,1,1,1,1,'{\"default\":1}',3),
-	(25,4,'name','text','Name',1,1,1,1,1,1,'{}',4),
+	(24,4,'order','text','Order',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',3),
+	(25,4,'name','text','Name',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',4),
 	(27,4,'created_at','timestamp','Created At',0,0,1,0,0,0,'{}',6),
 	(28,4,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),
 	(29,5,'id','number','ID',1,0,0,0,0,0,NULL,1),
@@ -133,28 +133,28 @@ VALUES
 	(54,6,'updated_at','timestamp','Updated At',1,0,0,0,0,0,NULL,11),
 	(55,6,'image','image','Page Image',0,1,1,1,1,1,NULL,12),
 	(56,7,'id','text','Id',1,0,0,0,0,0,'{}',1),
-	(57,7,'name','text','Name',1,1,1,1,1,1,'{}',2),
-	(58,7,'location','text','Location',1,1,1,1,1,1,'{}',3),
+	(57,7,'name','text','Name',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',2),
+	(58,7,'location','text','Location',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',3),
 	(59,7,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',4),
 	(60,7,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',5),
 	(61,8,'id','text','Id',1,0,0,0,0,0,'{}',1),
 	(62,8,'category_id','text','Category Id',1,1,1,1,1,1,'{}',2),
-	(63,8,'image','image','Image',0,1,1,1,1,1,'{}',3),
-	(64,8,'name','text','Name',1,1,1,1,1,1,'{}',4),
-	(65,8,'description','text_area','Description',0,1,1,1,1,1,'{}',5),
-	(66,8,'order','text','Order',0,1,1,1,1,1,'{}',6),
+	(63,8,'image','image','Image',0,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',3),
+	(64,8,'name','text','Name',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',4),
+	(65,8,'description','text_area','Description',0,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',5),
+	(66,8,'order','text','Order',0,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',6),
 	(67,8,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',7),
 	(68,8,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',8),
 	(69,9,'id','text','Id',1,0,0,0,0,0,'{}',1),
 	(71,9,'topic_id','text','Topic Id',1,1,1,1,1,1,'{}',3),
-	(72,9,'thumbnail','image','Thumbnail',0,1,1,1,1,1,'{}',4),
-	(73,9,'title','text','Title',1,1,1,1,1,1,'{}',5),
-	(74,9,'description','text_area','Description',1,1,1,1,1,1,'{}',6),
-	(75,9,'url','text','Url',1,1,1,1,1,1,'{}',7),
-	(76,9,'order','text','Order',0,1,1,1,1,1,'{}',8),
+	(72,9,'thumbnail','image','Thumbnail',0,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',4),
+	(73,9,'title','text','Title',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',5),
+	(74,9,'description','text_area','Description',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',6),
+	(75,9,'url','text','Url',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',7),
+	(76,9,'order','text','Order',0,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',8),
 	(77,9,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',9),
 	(78,9,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',10),
-	(79,4,'image','image','Image',0,1,1,1,1,1,'{}',4),
+	(79,4,'image','image','Image',0,1,1,1,1,1,'{\"validation\":{\"rule\":\"required\"}}',4),
 	(80,4,'category_hasone_topic_relationship','relationship','topics',0,1,1,1,1,1,'{\"model\":\"App\\\\Topic\",\"table\":\"topics\",\"type\":\"hasOne\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',8),
 	(82,7,'school_hasmany_user_relationship','relationship','students',0,1,1,1,1,1,'{\"model\":\"App\\\\User\",\"table\":\"users\",\"type\":\"hasMany\",\"column\":\"school_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',6),
 	(83,8,'topic_belongsto_category_relationship','relationship','category',0,1,1,1,1,1,'{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}',9),
@@ -209,12 +209,12 @@ VALUES
 	(1,'users','users','User','Users','voyager-person','App\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController',NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:51','2019-04-25 16:38:17'),
 	(2,'menus','menus','Menu','Menus','voyager-list','TCG\\Voyager\\Models\\Menu',NULL,'','',1,0,NULL,'2019-04-25 03:27:51','2019-04-25 03:27:51'),
 	(3,'roles','roles','Role','Roles','voyager-lock','TCG\\Voyager\\Models\\Role',NULL,'','',1,0,NULL,'2019-04-25 03:27:51','2019-04-25 03:27:51'),
-	(4,'categories','categories','Category','Categories','voyager-categories','App\\Category',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:55','2019-04-25 06:53:53'),
+	(4,'categories','categories','Category','Categories','voyager-categories','App\\Category',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 03:27:55','2019-05-09 05:43:28'),
 	(5,'posts','posts','Post','Posts','voyager-news','TCG\\Voyager\\Models\\Post','TCG\\Voyager\\Policies\\PostPolicy','','',1,0,NULL,'2019-04-25 03:27:55','2019-04-25 03:27:55'),
 	(6,'pages','pages','Page','Pages','voyager-file-text','TCG\\Voyager\\Models\\Page',NULL,'','',1,0,NULL,'2019-04-25 03:27:55','2019-04-25 03:27:55'),
-	(7,'schools','schools','School','Schools','voyager-categories','App\\School',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:02:28','2019-04-25 06:27:37'),
-	(8,'topics','topics','Topic','Topics','voyager-categories','App\\Topic',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:04:50','2019-04-25 06:33:35'),
-	(9,'videos','videos','Video','Videos','voyager-categories','App\\Video',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:05:21','2019-04-25 06:53:46');
+	(7,'schools','schools','School','Schools','voyager-categories','App\\School',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:02:28','2019-05-09 05:43:41'),
+	(8,'topics','topics','Topic','Topics','voyager-categories','App\\Topic',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:04:50','2019-05-09 05:44:23'),
+	(9,'videos','videos','Video','Videos','voyager-categories','App\\Video',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2019-04-25 04:05:21','2019-05-09 05:42:32');
 
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -323,7 +323,7 @@ LOCK TABLES `pages` WRITE;
 
 INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `created_at`, `updated_at`)
 VALUES
-	(1,0,'Hello World','Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.','<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>','pages/page1.jpg','hello-world','Yar Meta Description','Keyword1, Keyword2','ACTIVE','2019-04-25 03:27:55','2019-04-25 03:27:55');
+	(1,1,'About','this is about page','<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\r\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>','pages/page1.jpg','about','about page','about','ACTIVE','2019-04-25 03:27:55','2019-05-06 02:50:31');
 
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -658,7 +658,7 @@ LOCK TABLES `topics` WRITE;
 
 INSERT INTO `topics` (`id`, `category_id`, `image`, `name`, `description`, `order`, `created_at`, `updated_at`)
 VALUES
-	(1,1,'topics/May2019/6NskRBdhlMPffFVvAkeZ.png','English Grammer - Tense','Tenses are main part of english grammer',1,'2019-04-25 06:57:00','2019-05-01 07:04:04');
+	(1,1,'topics/May2019/yomRSAasmOYehE3pnFGB.png','English Grammar - Tense','Tenses are main part of english grammer',1,'2019-04-25 06:57:00','2019-05-05 16:00:41');
 
 /*!40000 ALTER TABLE `topics` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -787,9 +787,10 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `mobile`, `uid`, `email`, `email_verified_at`, `password`, `dob`, `gender`, `school_id`, `avatar`, `education`, `account_status`, `status`, `remember_token`, `settings`, `created_at`, `updated_at`)
 VALUES
-	(1,1,'Admin',NULL,NULL,'admin@admin.com',NULL,'$2y$10$CqOgypX09.jGO6v1yIKKxOiibLGjLl4vxXlSueNaBIXGiSkZoNvvO','1990-01-01 00:00:00','Male',2,'users/April2019/kvZzRbxdI5smocRSJEAs.jpeg','graduate','Pending',1,'Wu5muEA2LUFRf3eaeJj4JJieyY18yTdLc2OFSk5IO27AwP4lrGvktuQvjr3U','{\"locale\":\"en\"}','2019-04-25 03:27:55','2019-04-25 15:38:44'),
-	(2,1,'krunal dodiya','9426726815','110bb1d4491a245c','kunal.dodiya1@gmail.com',NULL,NULL,'27-06-1987','Male',2,'users/May2019/ogGHzkDajOwxe0ypzp20.png','graduate','Approved',1,NULL,'{\"locale\":\"en\"}','2019-04-25 03:29:53','2019-05-05 09:18:39'),
-	(3,2,'Niteshkumar Siddhram Shendre','7383600462',NULL,'nsendre89@gmail.com',NULL,NULL,'1991-08-29 00:00:00','Male',2,'users/default.png','12','Pending',1,NULL,NULL,'2019-04-25 04:32:17','2019-04-25 15:38:58');
+	(1,1,'Admin',NULL,NULL,'admin@admin.com',NULL,'$2y$10$CqOgypX09.jGO6v1yIKKxOiibLGjLl4vxXlSueNaBIXGiSkZoNvvO','1990-01-01','Male',2,'','graduate','Approved',1,'sxwww8GoHHpuQL4f08Lf9tw1J6qe8zXAWE1yOt5GIEiJ58ONm7i9SrJymFBX','{\"locale\":\"en\"}','2019-04-25 03:27:55','2019-04-25 15:38:44'),
+	(2,1,'krunal dodiya','9426726815','58d0851c77d214e4','kunal.dodiya1@gmail.com',NULL,NULL,'27-06-1987','Male',2,'image_picker1482900328.jpg','graduate','Approved',1,NULL,'{\"locale\":\"en\"}','2019-04-25 03:29:53','2019-05-06 04:30:20'),
+	(3,2,'Niteshkumar Siddhram Shendre','7383600462','58216f8fcd7c9d1e','nsendre89@gmail.com',NULL,NULL,'1991-08-29','Male',2,'image_picker749655407.jpg','12','Approved',1,NULL,NULL,'2019-04-25 04:32:17','2019-05-06 06:06:32'),
+	(4,2,'Alpesh','9375025627','07885a4a94e67d6a','alpesh.ashu@gmail.com',NULL,NULL,'01-01-1990','Male',2,'default.png','b com','Approved',1,NULL,NULL,'2019-05-05 16:21:01','2019-05-06 04:51:33');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -820,8 +821,27 @@ LOCK TABLES `videos` WRITE;
 
 INSERT INTO `videos` (`id`, `topic_id`, `thumbnail`, `title`, `description`, `url`, `order`, `created_at`, `updated_at`)
 VALUES
-	(1,1,'videos/April2019/XiANnDnaxGzpWPexiUpW.png','Present Indefinite Tense','आप बडी आसानी से Present Indefinite Tense के Concept को सीख जायेंगे..Present Indefinite Tense | Do Does का प्रयोग । With examples in Hindi','https://www.youtube.com/watch?v=SXJXaHaWS9U',1,'2019-04-25 06:58:00','2019-04-25 06:59:05'),
-	(2,1,'videos/May2019/dT9prJvR1PU5FmNlkqf4.jpg','Verbs in English Grammar | All Types : Linking Copular Stative Dynamic Irregular Regular Transitive','All Types of Verbs in English Grammar are covered; Linking, Copular, Stative, Dynamic, Regular, Irregular, Transitive, Intransitive, Finite, Infinite, Main Verb, Helping verb etc....','https://www.youtube.com/watch?v=b93EwZF_3nY',2,'2019-05-01 10:16:00','2019-05-01 10:17:45');
+	(1,1,'videos/May2019/WvziqAnch5RhaEzFu5Nl.png','Present Indefinite Tense','आप बडी आसानी से Present Indefinite Tense के Concept को सीख जायेंगे..Present Indefinite Tense | Do Does का प्रयोग । With examples in Hindi','https://www.youtube.com/watch?v=iJhahDUv494&feature=youtu.be',1,'2019-04-25 06:58:00','2019-05-06 17:31:12'),
+	(3,1,NULL,'Test','Test','https://youtu.be/20MFWzSiaJY',2,'2019-05-05 16:35:11','2019-05-05 16:35:11'),
+	(4,1,NULL,'Test 2','Test 2','https://youtu.be/iqDa9EGy2lA',3,'2019-05-05 16:37:43','2019-05-05 16:37:43'),
+	(5,1,NULL,'Test 3','Test 3','https://youtu.be/zyrRnAv5bHw',3,'2019-05-05 16:40:25','2019-05-05 16:40:25'),
+	(6,1,'videos/May2019/Jz1dN7Ge5W1v6StogZ2N.png','Hello','Hello','https://www.youtube.com/watch?v=pz_M5fkD6bI&feature=youtu.be',1,'2019-05-05 16:43:00','2019-05-06 16:32:58'),
+	(8,1,NULL,'testing video','testing video','https://youtu.be/WPqlS1dixfU',5,'2019-05-06 04:15:00','2019-05-06 05:13:32'),
+	(9,1,NULL,'test another','test another','https://youtu.be/zyrRnAv5bHw',6,'2019-05-06 05:15:00','2019-05-06 05:20:52'),
+	(10,1,NULL,'new testing','new testing','https://youtu.be/WPqlS1dixfU',7,'2019-05-06 05:25:04','2019-05-06 05:25:04'),
+	(11,1,NULL,'Mov File testing','Mov File test','https://youtu.be/6VYb91APNls',8,'2019-05-06 05:30:47','2019-05-06 05:30:47'),
+	(12,1,NULL,'Test another video','test','https://youtu.be/9tfpviLFPF8',10,'2019-05-06 05:41:00','2019-05-06 05:50:36'),
+	(13,1,NULL,'आधे डॉक्टर बन जाओगे - अगर ये विडियो देख लिया तो','आधे डॉक्टर बन जाओगे - अगर ये विडियो देख लिया तो','https://www.youtube.com/watch?v=Hlxqk0iHp5w',11,'2019-05-06 05:52:00','2019-05-06 17:10:21'),
+	(14,1,NULL,'Ticket Registration Video','ticket Regi','https://youtu.be/IzgziD6fonE',12,'2019-05-06 05:56:22','2019-05-06 05:56:22'),
+	(15,1,NULL,'New Uploaded','Uploaded Caption Certificate 11:49 am','https://youtu.be/6MlPZdg2NGk',12,'2019-05-06 06:18:00','2019-05-06 06:19:38'),
+	(19,1,NULL,'aaaaaaaaaaaaaaa','aaaaaaaaaaaaaaaaa','https://youtu.be/bo31rKblS1w',15,'2019-05-06 13:45:20','2019-05-06 13:45:20'),
+	(20,1,NULL,'rrrrrrrrrrr','rrrrrrrrrr','https://www.youtube.com/watch?v=GRgjrhxQL6E',16,'2019-05-06 13:54:20','2019-05-06 13:54:20'),
+	(21,1,NULL,'nnnnnnnnnnnn','nnnnnnnnnnnnnnnnnnnnnnnnn','https://vimeo.com/334473116',17,'2019-05-06 13:55:00','2019-05-06 16:54:33'),
+	(22,1,'videos/May2019/iv9V7kxGQKNznPxyt8ZL.gif','Nnnnnnesite','dsfdsfsfsdsgsddsfdsfsdfsd','https://www.youtube.com/watch?v=wm9-h6dZ8C4',20,'2019-05-06 16:35:00','2019-05-06 17:34:16'),
+	(24,1,NULL,'hhhhhhhhhhhhhhhhhhhh','hhhhhhhhhhhhhhhhhhhhhhhhhhh','https://www.youtube.com/watch?v=9nIJ57aoznY',22,'2019-05-07 02:23:00','2019-05-07 02:29:59'),
+	(25,1,NULL,'jjjjjjjjjjjjjjjjjjjj','jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj','https://youtu.be/fdPUPf8Pnpc',22,'2019-05-07 02:46:27','2019-05-07 02:46:27'),
+	(26,1,NULL,'tttttttttttttttttttttt MPEG-2','ttttttttttttttttttttttttttttttttttttttttttttttttttttttt','https://www.youtube.com/watch?v=ZZ_KHhaxHMg',20,'2019-05-07 02:55:00','2019-05-07 03:08:50'),
+	(27,1,NULL,'tttttttttttttttttttttt','tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt','https://youtu.be/pl0AHUrmHzk',22,'2019-05-07 04:11:00','2019-05-07 05:20:47');
 
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
