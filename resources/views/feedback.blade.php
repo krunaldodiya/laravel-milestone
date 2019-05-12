@@ -3,11 +3,13 @@
 @section('content')
 <div class="row">
     <div style="padding: 10px;">
-        <h3 style="margin-left: 20px; margin-bottom: 20px">
+        <h3 style="margin: 0 20px;">
             Feedback
         </h3>
 
-        <div style="margin-left: 20px; font-size:16px">
+        <hr>
+
+        <div style="margin: 0 20px; font-size:16px">
             <form class="form" style="min-width: 320px;" method="POST">
                 <div class="form-group">
                     <label for="subjectField">Subject</label>

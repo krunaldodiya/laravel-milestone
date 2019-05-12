@@ -3,11 +3,13 @@
 @section('content')
 <div class="row">
     <div style="padding: 10px;">
-        <h3 style="margin-left: 20px; margin-bottom: 20px">
+        <h3 style="margin: 0 20px;">
             About us
         </h3>
 
-        <div style="margin-left: 20px; font-size:16px">
+        <hr>
+
+        <div style="margin: 0 20px; font-size:16px">
             <p style="text-align: justify;">This app's idea was visualised by <strong>Nitesh Shendre</strong> who has a
                 good command at English language and also has commercial subjects' knowledge. This video course has been
                 prepared only for <strong>Gujarat</strong>. You can find many interesting videos on Spoken English.
