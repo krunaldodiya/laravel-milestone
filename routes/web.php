@@ -15,6 +15,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/about', 'HomeController@about')->name('about');
-Route::get('/feedback', 'HomeController@feedback')->name('feedback');
+Route::get('/feedback', 'HomeController@feedbackForm')->name('feedback');
+Route::post('/feedback', 'HomeController@sendFeedback')->name('feedback');
 
 Route::get("/reset-device", "HomeController@resetDevice")->name("reset.device");

@@ -18,9 +18,18 @@ class HomeController extends Controller
         return view('about');
     }
 
-    public function feedback()
+    public function feedbackForm(Request $request)
     {
-        return view('feedback');
+        $user = User::find($request->userId);
+
+        return view('feedback', ['user' => $user]);
+    }
+
+    public function sendFeedback(Request $request)
+    {
+        $user = User::find($request->user_id);
+
+        dd($user);
     }
 
     public function getSchools(Request $request)
