@@ -13,18 +13,18 @@ class FeedbackMail extends Mailable
 
     public $user;
     public $subject;
-    public $message;
+    public $body;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user, $subject, $message)
+    public function __construct($user, $subject, $body)
     {
         $this->user = $user;
         $this->subject = $subject;
-        $this->message = $message;
+        $this->body = $body;
     }
 
     /**
@@ -37,6 +37,6 @@ class FeedbackMail extends Mailable
         return $this
             ->view('emails.feedback')
             ->subject($this->subject)
-            ->with(['user' => $this->user, 'message' => $this->message]);
+            ->with(['user' => $this->user, 'body' => $this->body]);
     }
 }

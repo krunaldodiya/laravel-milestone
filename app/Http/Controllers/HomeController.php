@@ -31,11 +31,11 @@ class HomeController extends Controller
     {
         $user_id = $request->user_id;
         $subject = $request->subject;
-        $message = $request->message;
+        $body = $request->body;
 
         $user = User::find($user_id);
 
-        Mail::to(env('MAIL_USERNAME'))->send(new FeedbackMail($user, $subject, $message));
+        Mail::to(env('MAIL_USERNAME'))->send(new FeedbackMail($user, $subject, $body));
 
         return redirect()->back()->with(['message' => 'Feedback sent successfully.']);
     }

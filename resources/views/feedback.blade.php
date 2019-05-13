@@ -17,7 +17,7 @@
 
                 <div class="form-group">
                     <label for="messageField">Message</label>
-                    <textarea required minlength="10" name="message" class="form-control" id="messageField"
+                    <textarea required minlength="10" name="body" class="form-control" id="messageField"
                         placeholder="Write a message" rows="5"></textarea>
                 </div>
 
@@ -25,11 +25,12 @@
                     <button type="submit" class="btn btn-primary">Send Feedback</button>
                 </div>
 
-                @if(session('message'))
-                <div style="color: green;">{{session('message')}}</div>
-                @endif
-            </form>
+                {{-- @if(session('message'))
+                <div style="color: green;">{{session('message')}}
         </div>
+        @endif --}}
+        </form>
     </div>
+</div>
 </div>
 @endsection
