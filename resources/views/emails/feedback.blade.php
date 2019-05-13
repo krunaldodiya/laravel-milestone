@@ -1,4 +1,4 @@
-<div>from, {{ $user['name'] }}</div>
+{{-- <div>from, {{ $user['name'] }}</div> --}}
 
 <div>
     <p>{{ $message }}</p>
