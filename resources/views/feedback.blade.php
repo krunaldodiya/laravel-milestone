@@ -25,12 +25,11 @@
                     <button type="submit" class="btn btn-primary">Send Feedback</button>
                 </div>
 
-                {{-- @if(session('message'))
-                <div style="color: green;">{{session('message')}}
+                @if(session('message'))
+                <div style="color: green;">{{session('message')}}</div>
+                @endif
+            </form>
         </div>
-        @endif --}}
-        </form>
     </div>
-</div>
 </div>
 @endsection
