@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\School;
 use App\User;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\FeedbackMail;
 
 class HomeController extends Controller
 {
@@ -33,14 +34,8 @@ class HomeController extends Controller
         $message = $request->message;
 
         $user = User::find($user_id);
-        $data = ['name' => $user['name'], 'body' => $message];
 
-        Mail::send('emails.feedback', $data, function ($message) use ($user, $subject) {
-            $message
-                ->to(env('MAIL_USERNAME'), 'Admin')
-                ->from($user->email, $user->name)
-                ->subject($subject);
-        });
+        Mail::to(env('MAIL_USERNAME'))->send(new FeedbackMail($user, $subject, $message));
 
         return redirect()->back()->with(['message' => 'Feedback sent successfully.']);
     }

@@ -21,9 +21,13 @@
                         placeholder="Write a message" rows="5"></textarea>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary">Send Feedback</button>
                 </div>
+
+                @if(session('message'))
+                <div style="color: green;">{{session('message')}}</div>
+                @endif
             </form>
         </div>
     </div>
