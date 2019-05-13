@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\School;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -27,9 +28,21 @@ class HomeController extends Controller
 
     public function sendFeedback(Request $request)
     {
-        $user = User::find($request->user_id);
+        $user_id = $request->user_id;
+        $subject = $request->subject;
+        $message = $request->message;
 
-        dd($user);
+        $user = User::find($user_id);
+        $data = ['name' => $user['name'], 'body' => $message];
+
+        Mail::send('emails.feedback', $data, function ($message) use ($user, $subject) {
+            $message
+                ->to(env('MAIL_USERNAME'), 'Admin')
+                ->from($user->email, $user->name)
+                ->subject($subject);
+        });
+
+        return redirect()->back()->with(['message' => 'Feedback sent successfully.']);
     }
 
     public function getSchools(Request $request)

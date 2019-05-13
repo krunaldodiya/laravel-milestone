@@ -11,13 +11,13 @@
 
                 <div class="form-group">
                     <label for="subjectField">Subject</label>
-                    <input required minlength="5" type="text" class="form-control" id="subjectField"
+                    <input type="text" required minlength="5" name="subject" class="form-control" id="subjectField"
                         placeholder="Enter subject">
                 </div>
 
                 <div class="form-group">
                     <label for="messageField">Message</label>
-                    <textarea required minlength="10" class="form-control" id="messageField"
+                    <textarea required minlength="10" name="message" class="form-control" id="messageField"
                         placeholder="Write a message" rows="5"></textarea>
                 </div>
 
