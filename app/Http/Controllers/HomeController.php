@@ -25,17 +25,21 @@ class HomeController extends Controller
         $user = auth()->user();
 
         if ($user->role->name == "admin") {
-            return \Spatie\DbDumper\Databases\MySql::create()
+            $dump = \Spatie\DbDumper\Databases\MySql::create()
                 ->setDbName(env('DB_DATABASE'))
                 ->setUserName(env('DB_USERNAME'))
                 ->setPassword(env('DB_PASSWORD'))
                 ->includeTables(['users', 'schools', 'categories', 'topics', 'videos'])
                 ->dumpToFile('dump.sql');
 
-            $file = public_path() . "/dump.sql";
-            $headers = array('Content-Type: application/sql');
+            if ($dump) {
+                $file = public_path() . "/dump.sql";
+                $headers = array('Content-Type: application/sql');
 
-            return Response::download($file, 'dump.sql', $headers);
+                return Response::download($file, 'dump.sql', $headers);
+            }
+
+            return abort(403);
         };
 
         return abort(403);
