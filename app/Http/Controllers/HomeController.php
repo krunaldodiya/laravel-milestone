@@ -31,6 +31,11 @@ class HomeController extends Controller
                 ->setPassword(env('DB_PASSWORD'))
                 ->includeTables(['users', 'schools', 'categories', 'topics', 'videos'])
                 ->dumpToFile('dump.sql');
+
+            $file = public_path() . "/dump.sql";
+            $headers = array('Content-Type: application/sql');
+
+            return Response::download($file, 'dump.sql', $headers);
         };
 
         return abort(403);
