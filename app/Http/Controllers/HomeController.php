@@ -20,6 +20,22 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function export(Request $request)
+    {
+        $user = auth()->user();
+
+        if ($user->role->name == "admin") {
+            return \Spatie\DbDumper\Databases\MySql::create()
+                ->setDbName(env('DB_DATABASE'))
+                ->setUserName(env('DB_USERNAME'))
+                ->setPassword(env('DB_PASSWORD'))
+                ->includeTables(['users', 'schools', 'categories', 'topics', 'videos'])
+                ->dumpToFile('dump.sql');
+        };
+
+        return abort(403);
+    }
+
     public function feedbackForm(Request $request)
     {
         $user = User::find($request->userId);
