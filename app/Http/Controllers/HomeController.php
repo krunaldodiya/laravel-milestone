@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FeedbackMail;
 use Spatie\DbDumper\Databases\MySql;
+use Illuminate\Http\Response;
 
 class HomeController extends Controller
 {
