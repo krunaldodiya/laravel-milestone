@@ -8,7 +8,6 @@ use App\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FeedbackMail;
 use Spatie\DbDumper\Databases\MySql;
-use Illuminate\Http\Response;
 
 class HomeController extends Controller
 {
@@ -37,7 +36,7 @@ class HomeController extends Controller
             $file = public_path() . "/dump.sql";
             $headers = array('Content-Type: application/sql');
 
-            return Response::download($file, 'dump.sql', $headers);
+            return response()->download($file, 'dump.sql', $headers);
         };
 
         return abort(403);
