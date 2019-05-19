@@ -7,6 +7,7 @@ use App\School;
 use App\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FeedbackMail;
+use Spatie\DbDumper\Databases\MySql;
 
 class HomeController extends Controller
 {
@@ -25,21 +26,17 @@ class HomeController extends Controller
         $user = auth()->user();
 
         if ($user->role->name == "admin") {
-            $dump = \Spatie\DbDumper\Databases\MySql::create()
+            MySql::create()
                 ->setDbName(env('DB_DATABASE'))
                 ->setUserName(env('DB_USERNAME'))
                 ->setPassword(env('DB_PASSWORD'))
                 ->includeTables(['users', 'schools', 'categories', 'topics', 'videos'])
                 ->dumpToFile('dump.sql');
 
-            if ($dump) {
-                $file = public_path() . "/dump.sql";
-                $headers = array('Content-Type: application/sql');
+            $file = public_path() . "/dump.sql";
+            $headers = array('Content-Type: application/sql');
 
-                return Response::download($file, 'dump.sql', $headers);
-            }
-
-            return abort(403);
+            return Response::download($file, 'dump.sql', $headers);
         };
 
         return abort(403);
