@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FeedbackMail;
 use Spatie\DbDumper\Databases\MySql;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -35,8 +36,9 @@ class HomeController extends Controller
 
             $file = public_path() . "/dump.sql";
             $headers = array('Content-Type: application/sql');
+            $file_name = Carbon::now()->format('d-m-Y-h:s:i');
 
-            return response()->download($file, 'dump.sql', $headers);
+            return response()->download($file, "milestone-${file_name}.sql", $headers);
         };
 
         return abort(403);
